@@ -15,6 +15,7 @@ var CONF_CATEGORY_AIGO_CODE = map[int]string{
 	CATEGORY_OTHER:   "OTHER",
 }
 
+/*
 const (
 	NOTIFY_CATEGORY_SENT              = 1 //	aiguo 给 顺丰 下单成功
 	NOTIFY_CATEGORY_RECEIPTING        = 2 //    分配快递员成功，开始去取件
@@ -23,6 +24,7 @@ const (
 	NOTIFY_CATEGORY_CANCELLED         = 5 //	取消物流
 	NOTIFY_CATEGORY_AIGUO_CANCEL      = 6 //    aighuo取消
 )
+*/
 
 const (
 	SEND_FAILURE     = 1 //物流下单失败
@@ -50,6 +52,7 @@ var CONF_NOTIFY_TYPE = map[int]string{
 }
 
 // 通知类型
+/*
 var CONF_NOTIFY_CATEGORY = map[int]string{
 	NOTIFY_CATEGORY_SENT:              "ExpressOrderSent",
 	NOTIFY_CATEGORY_RECEIPTING:        "ExpressOrderReceipting",
@@ -58,3 +61,4 @@ var CONF_NOTIFY_CATEGORY = map[int]string{
 	NOTIFY_CATEGORY_CANCELLED:         "ExpressOrderCancelled",
 	NOTIFY_CATEGORY_AIGUO_CANCEL:      "BusinessOrderCancelled",
 }
+*/
