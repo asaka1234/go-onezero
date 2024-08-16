@@ -94,6 +94,12 @@ type TraceOrderResponseItemV2 struct {
 	Description string `json:"description"`
 }
 
+// adapter适配
+type TraceItem struct {
+	Time string `json:"time"`
+	Desc string `json:"desc"`
+}
+
 // ------ 回调返回 ---------------
 type CallbackResponseV2 struct {
 	ExpressCompanyNo string `json:"expressCompanyNo" comment:"快递公司编码"`

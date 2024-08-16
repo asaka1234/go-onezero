@@ -68,7 +68,7 @@ func (cli *Client) AddOrder(bodyParam CreateOrderOptionsV2) (string, error) {
 /*
 	waybillNo     运单号
 */
-func (cli *Client) ListTrace(bodyParam TraceOrderOptionsV2) ([]TraceOrderResponseItemV2, error) {
+func (cli *Client) ListTrace(bodyParam TraceOrderOptionsV2) ([]TraceItem, error) {
 
 	reqPath := "/api/order/trace"
 	rawURL := cli.BaseURL + reqPath
@@ -108,8 +108,19 @@ func (cli *Client) ListTrace(bodyParam TraceOrderOptionsV2) ([]TraceOrderRespons
 		return nil, err //errors.New(fmt.Sprintf("status=%d, msg=%s", urlResp.Status, urlResp.Msg))
 	}
 
-	//-----
-	return result, nil
+	//----adapter v1----------------------------
+	if len(result) > 0 {
+		f := make([]TraceItem, len(result))
+		for _, item := range result {
+			f = append(f, TraceItem{
+				Time: item.Time,
+				Desc: item.Description,
+			})
+		}
+		return f, nil
+	}
+	//-----------------------------------------------
+	return nil, nil
 }
 
 //-------------------------------------------
