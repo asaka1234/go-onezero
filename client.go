@@ -1,4 +1,4 @@
-package aiguoclient
+package aiguoclient_v2
 
 const (
 	BASE_URL_PRODUCT = "http://aiguo-express.aiguo.tech/"

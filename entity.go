@@ -1,4 +1,4 @@
-package aiguoclient
+package aiguoclient_v2
 
 type Request struct {
 	AppId    string `json:"appId"`

@@ -1,4 +1,4 @@
-package aiguoclient
+package aiguoclient_v2
 
 const (
 	CATEGORY_CLOTHES = 1 //	衣物

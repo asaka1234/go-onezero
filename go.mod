@@ -1,4 +1,4 @@
-module gitee.com/yaonuo_dev/aiguoclient
+module gitee.com/yaonuo_dev/aiguoclient_v2
 
 go 1.21.0
 
