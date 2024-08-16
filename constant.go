@@ -38,15 +38,15 @@ const (
 
 // 通知类型
 var CONF_NOTIFY_TYPE = map[int]string{
-	SEND_FAILURE:     "物流下单失败",
-	SEND_SUCCESS:     "物流下单成功",
-	COLLECTING:       "揽收中",
-	COLLECTED:        "已揽收",
-	TRANSIT:          "运输中",
-	SIGNED:           "已签收",
-	CANCELED:         "已取消",
-	CANCELED_INVALID: "订单作废",
-	CANCELED_BACK:    "订单退回",
+	SEND_FAILURE:     "SEND_FAILURE",     //物流下单失败
+	SEND_SUCCESS:     "SEND_SUCCESS",     //物流下单成功
+	COLLECTING:       "COLLECTING",       //揽收中
+	COLLECTED:        "COLLECTED",        //已揽收
+	TRANSIT:          "TRANSIT",          //运输中
+	SIGNED:           "SIGNED",           //已签收
+	CANCELED:         "CANCELED",         //已取消
+	CANCELED_INVALID: "CANCELED_INVALID", //订单作废
+	CANCELED_BACK:    "CANCELED_BACK",    //订单退回
 }
 
 // 通知类型
