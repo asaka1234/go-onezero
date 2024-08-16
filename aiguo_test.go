@@ -75,7 +75,7 @@ func TestListTrace(t *testing.T) {
 
 	//参数
 	reqData := TraceOrderOptionsV2{
-		WaybillNo: "SF3123968234911", //运单号
+		WaybillNo: "DPK6305293622108", //运单号
 	}
 
 	//运单轨迹
