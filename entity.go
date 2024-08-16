@@ -77,6 +77,7 @@ type QueryOrderResponseV2 struct {
 	SenderProvince    string `json:"senderProvince"`
 
 	EstimateWeight   float64 `json:"estimateWeight" comment:"预估重量，重量范围1-50"`
+	ActualWeight     float64 `json:"actualWeight" comment:"实际重量"`
 	AppointmentStart string  `json:"appointmentStart" comment:"预约开始时间 2024-06-01 09:00:00"`
 	AppointmentEnd   string  `json:"appointmentEnd" comment:"预约结束时间 2024-06-01 10:00:00"`
 }
