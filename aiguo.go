@@ -111,11 +111,11 @@ func (cli *Client) ListTrace(bodyParam TraceOrderOptionsV2) ([]TraceItem, error)
 	//----adapter v1----------------------------
 	if len(result) > 0 {
 		f := make([]TraceItem, len(result))
-		for _, item := range result {
-			f = append(f, TraceItem{
+		for index, item := range result {
+			f[index] = TraceItem{
 				Time: item.Time,
 				Desc: item.Description,
-			})
+			}
 		}
 		return f, nil
 	}
