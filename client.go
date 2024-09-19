@@ -1,20 +1,19 @@
-package aiguoclient_v2
+package onezero
 
-const (
-	BASE_URL_PRODUCT = "http://aiguo-express.aiguo.tech/"
-	BASE_URL_DEV     = "http://testing-aiguo-express.aiguo.tech/"
-)
+import "github.com/go-resty/resty/v2"
 
 type Client struct {
-	AppID   int
-	AppKey  string
-	BaseURL string
+	UserName string
+	Password string
+	BaseURL  string
+	ryClient *resty.Client
 }
 
-func NewClient(appID int, appKey string, baseURL string) *Client {
+func NewClient(userName string, password string, baseURL string) *Client {
 	return &Client{
-		AppID:   appID,
-		AppKey:  appKey,
-		BaseURL: baseURL,
+		UserName: userName,
+		Password: password,
+		BaseURL:  baseURL,
+		ryClient: resty.New(), //client实例
 	}
 }

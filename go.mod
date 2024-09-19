@@ -1,9 +1,7 @@
-module gitee.com/yaonuo_dev/aiguoclient_v2
+module github.com/asaka1234/go-onezero
 
-go 1.21.0
+go 1.22.2
 
-require (
-	github.com/astaxie/beego v1.12.1
-	github.com/mitchellh/mapstructure v1.5.0
-	github.com/xxjwxc/public v0.0.0-20240705102424-9b12e8672060
-)
+require github.com/go-resty/resty/v2 v2.15.1
+
+require golang.org/x/net v0.27.0 // indirect
