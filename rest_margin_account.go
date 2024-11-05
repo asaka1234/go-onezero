@@ -15,14 +15,14 @@ func (cli *Client) GetMarginAccountPositionList(auth string, marginAccountId int
 	//返回值会放到这里
 	var result MarginAccountPositionResponse
 
-	resp, err := cli.ryClient.SetTLSClientConfig(&tls.Config{InsecureSkipVerify: true}).
+	_, err := cli.ryClient.SetTLSClientConfig(&tls.Config{InsecureSkipVerify: true}).
 		SetCloseConnection(true).
 		R().
 		SetHeaders(getAuthHeaders(auth)).
 		SetResult(&result).
 		Get(rawURL)
 
-	fmt.Printf("accessToken: %+v\n", resp)
+	//fmt.Printf("accessToken: %+v\n", resp)
 
 	if err != nil {
 		return nil, err
