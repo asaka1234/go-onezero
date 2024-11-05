@@ -1,5 +1,13 @@
 package onezero
 
+// 错误resp
+type CommonErrorResponse struct {
+	Type    string `json:"type"`
+	Title   string `json:"title"`
+	Status  int    `json:"status"` //The lifetime of the token in seconds
+	TraceId string `json:"traceId"`
+}
+
 type AccessTokenResponse struct {
 	AccessToken string `json:"access_token"`
 	TokenType   string `json:"token_type"`

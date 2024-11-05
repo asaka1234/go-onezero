@@ -1,7 +1,7 @@
 package onezero
 
 const (
-	REST_VERSION = "1.22"
+	REST_VERSION = "1.20"
 )
 
 const (
