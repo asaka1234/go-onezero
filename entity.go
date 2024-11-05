@@ -25,7 +25,7 @@ type MarginAccountPositionItem struct {
 	Position        string               `json:"position"` //Net position where positive is BUY and negative is SELL
 	CoreSymbol      string               `json:"coreSymbol"`
 	TierStates      []TierStatesItem     `json:"tierStates"`
-	VwapPrecision   string               `json:"vwapPrecision"`   //The number of decimal places that VWAP is calculated at
+	VwapPrecision   int                  `json:"vwapPrecision"`   //The number of decimal places that VWAP is calculated at
 	EntityPositions []EntityPositionItem `json:"entityPositions"` //Entity net positions that make up this core symbol net position
 	//option
 	Vwap                           string `json:"vwap,omitempty"` //VWAP of the net position. Only set if the net position is non-zero

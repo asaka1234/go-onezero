@@ -22,11 +22,11 @@ func (cli *Client) GetMarginAccountPositionList(auth string, marginAccountId int
 		SetResult(&result).
 		Get(rawURL)
 
-	fmt.Printf("accessToken: %+v\n", resp)
-
 	if err != nil {
 		return nil, err
 	}
+
+	fmt.Printf("==wsx====%s\n", string(resp.Body()))
 
 	return &result, err
 }
