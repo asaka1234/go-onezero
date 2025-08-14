@@ -1,5 +1,12 @@
 package onezero
 
+type OnezeroInitParams struct {
+	UserName string `json:"userName" mapstructure:"userName" config:"userName"  yaml:"userName"`
+	Password string `json:"password" mapstructure:"password" config:"password"  yaml:"password"`
+	BaseURL  string `json:"baseURL" mapstructure:"baseURL" config:"baseURL"  yaml:"baseURL"`
+}
+
+// -----------------------------------------------
 // 错误resp
 type CommonErrorResponse struct {
 	Type    string `json:"type"`

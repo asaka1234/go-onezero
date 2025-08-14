@@ -1,32 +1,22 @@
 package onezero
 
 import (
-	"crypto/tls"
 	"fmt"
+	"testing"
 )
 
-// 获取指定margin account的持仓列表
-// https://documentation-external.onezero.com:4434/RestAPI/onezero-rest-api.html#operation/GET-margin-account-id-positions
-func (cli *Client) GetMarginAccountPositionList(auth string, marginAccountId int) (*MarginAccountPositionResponse, error) {
+func TestGetMarginAccountPositionList(t *testing.T) {
 
-	reqPath := "api/rest/margin-account/%d/positions"
-	rawURL := cli.BaseURL + fmt.Sprintf(reqPath, marginAccountId)
+	token := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiJiYWU3OTkyNi1mZGUwLTRjYzUtYjI5YS0wMDMwNjk4M2JiZWEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiY3B0YnpfQWJvb2siLCJSZXN0VmVyc2lvbiI6IjEuMjAiLCJleHAiOjE3NDAwMjIyODh9.DHuOB2i_IHsCLUih51wKrlBcBqQhNc7XkAO2tt-r2rM"
 
-	//返回值会放到这里
-	var result MarginAccountPositionResponse
+	//token := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI4YTBhMjNmMS1iOGMyLTQxODEtOTkzOC1mNmE5Nzk5YWNmOTMiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiY3B0YnoiLCJSZXN0VmVyc2lvbiI6IjEuMjAiLCJleHAiOjE3Mzk5Njk4MjR9.mZvj-whKUG1Bokk3sRR605U_wB5-MKrCsSoMl0dhntI"
 
-	resp, err := cli.ryClient.SetTLSClientConfig(&tls.Config{InsecureSkipVerify: true}).
-		SetCloseConnection(true).
-		R().
-		SetHeaders(getAuthHeaders(auth)).
-		SetResult(&result).
-		Get(rawURL)
-
+	//请求
+	resp, err := New().GetMarginAccountPositionList(token, 14)
 	if err != nil {
-		return nil, err
+		t.Errorf("request failed, msg[%v]", err)
+		return
 	}
 
-	fmt.Printf("==wsx====%s\n", string(resp.Body()))
-
-	return &result, err
+	fmt.Printf("==wsx====%+v\n", resp)
 }

@@ -10,22 +10,31 @@ import (
 func (cli *Client) GetMarginAccountPositionList(auth string, marginAccountId int) (*MarginAccountPositionResponse, error) {
 
 	reqPath := "api/rest/margin-account/%d/positions"
-	rawURL := cli.BaseURL + fmt.Sprintf(reqPath, marginAccountId)
+	rawURL := cli.Params.BaseURL + fmt.Sprintf(reqPath, marginAccountId)
 
 	//返回值会放到这里
 	var result MarginAccountPositionResponse
 
-	_, err := cli.ryClient.SetTLSClientConfig(&tls.Config{InsecureSkipVerify: true}).
+	resp, err := cli.ryClient.SetTLSClientConfig(&tls.Config{InsecureSkipVerify: true}).
 		SetCloseConnection(true).
 		R().
+		SetDebug(cli.debugMode).
 		SetHeaders(getAuthHeaders(auth)).
 		SetResult(&result).
 		Get(rawURL)
 
-	//fmt.Printf("accessToken: %+v\n", resp)
-
 	if err != nil {
 		return nil, err
+	}
+
+	if resp.StatusCode() != 200 {
+		//反序列化错误会在此捕捉
+		return nil, fmt.Errorf("status code: %d", resp.StatusCode())
+	}
+
+	if resp.Error() != nil {
+		//反序列化错误会在此捕捉
+		return nil, fmt.Errorf("%v, body:%s", resp.Error(), resp.Body())
 	}
 
 	return &result, err
