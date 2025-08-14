@@ -6,7 +6,7 @@ import (
 )
 
 func New() *Client {
-	return NewClient(&OnezeroInitParams{USER_NAME, PASSWORD, BASE_URL_PRODUCT})
+	return NewClient(&OnezeroInitParams{USER_NAME, PASSWORD, BASE_URL_PRODUCT, REST_VERSION})
 }
 
 // 测试获取token

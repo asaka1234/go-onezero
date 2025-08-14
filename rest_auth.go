@@ -24,7 +24,7 @@ func (cli *Client) GetAccessToken() (*AccessTokenResponse, error) {
 			"grant_type":   "password",
 			"username":     cli.Params.UserName,
 			"password":     cli.Params.Password,
-			"rest_version": REST_VERSION,
+			"rest_version": cli.Params.RestVersion,
 		}).
 		SetHeaders(getHeaders()).
 		SetResult(&result). // or SetResult(AuthSuccess{}).
